@@ -1,0 +1,547 @@
+/* ================================
+   GLOBAL
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at top left, #eef2ff, transparent 35%),
+        radial-gradient(circle at bottom right, #f3e8ff, transparent 35%),
+        #f8fafc;
+    color: #172033;
+    min-height: 100vh;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+    text-align: center;
+    padding: 70px 20px 80px;
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111827 0%,
+            #312e81 45%,
+            #7c3aed 100%
+        );
+
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    top: -200px;
+    left: -100px;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+    bottom: -180px;
+    right: -100px;
+}
+
+.brand {
+    position: relative;
+    z-index: 2;
+}
+
+.shield {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 52px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero h1 span {
+    color: #c4b5fd;
+}
+
+.subtitle {
+    font-size: 20px;
+    margin-top: 18px;
+    opacity: 0.92;
+}
+
+.hero h2 {
+    margin-top: 25px;
+    font-size: 28px;
+}
+
+.hero-description {
+    max-width: 750px;
+    margin: 18px auto 0;
+    font-size: 17px;
+    line-height: 1.7;
+    opacity: 0.88;
+}
+
+
+/* ================================
+   MAIN CONTAINER
+================================ */
+
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: -35px auto 50px;
+    position: relative;
+    z-index: 5;
+}
+
+
+/* ================================
+   CARDS
+================================ */
+
+.card {
+    background: rgba(255,255,255,0.96);
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    padding: 32px;
+    margin-bottom: 28px;
+
+    box-shadow:
+        0 15px 40px rgba(15,23,42,0.08);
+}
+
+.card h2 {
+    font-size: 27px;
+    margin-bottom: 25px;
+    color: #1e1b4b;
+}
+
+
+/* ================================
+   ANALYSIS TYPE GRID
+================================ */
+
+.type-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.type-btn {
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 18px;
+
+    padding: 22px 15px;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    transition: all 0.25s ease;
+}
+
+.type-btn:hover {
+    transform: translateY(-4px);
+    border-color: #6366f1;
+
+    box-shadow:
+        0 10px 25px rgba(99,102,241,0.15);
+}
+
+.type-btn.active {
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #f5f3ff
+        );
+
+    border-color: #6366f1;
+
+    box-shadow:
+        0 8px 25px rgba(99,102,241,0.15);
+}
+
+.type-btn .icon {
+    font-size: 32px;
+}
+
+.type-btn strong {
+    font-size: 16px;
+    color: #1f2937;
+}
+
+.type-btn small {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+
+/* ================================
+   TEXT INPUT
+================================ */
+
+.input-card textarea {
+    width: 100%;
+    min-height: 210px;
+
+    padding: 18px;
+
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+
+    font-size: 16px;
+    font-family: inherit;
+
+    resize: vertical;
+    outline: none;
+
+    background: #fafbff;
+
+    transition: 0.2s;
+}
+
+.input-card textarea:focus {
+    border-color: #6366f1;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(99,102,241,0.10);
+}
+
+.input-card textarea::placeholder {
+    color: #9ca3af;
+}
+
+
+/* ================================
+   UPLOAD
+================================ */
+
+.upload-area {
+    margin-top: 20px;
+    padding: 22px;
+
+    border: 2px dashed #c7d2fe;
+    border-radius: 16px;
+
+    text-align: center;
+
+    background: #f8faff;
+}
+
+.upload-btn {
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    background: #eef2ff;
+    color: #4338ca;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.upload-btn:hover {
+    background: #e0e7ff;
+}
+
+#fileInput {
+    display: none;
+}
+
+.file-name {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.upload-area p {
+    margin-top: 10px;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+
+/* ================================
+   LOADING
+================================ */
+
+.loading {
+    display: none;
+    text-align: center;
+    padding: 25px;
+    color: #6366f1;
+}
+
+.spinner {
+    width: 38px;
+    height: 38px;
+
+    border: 4px solid #e5e7eb;
+    border-top-color: #6366f1;
+
+    border-radius: 50%;
+
+    animation: spin 0.8s linear infinite;
+
+    margin: 0 auto 12px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
+
+.analyze-btn,
+.clear-btn {
+    border: none;
+    padding: 14px 25px;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    margin-top: 20px;
+
+    transition: all 0.2s;
+}
+
+.analyze-btn {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        );
+
+    box-shadow:
+        0 8px 20px rgba(79,70,229,0.25);
+}
+
+.analyze-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(79,70,229,0.35);
+}
+
+.clear-btn {
+    background: #f1f5f9;
+    color: #374151;
+
+    margin-left: 10px;
+}
+
+.clear-btn:hover {
+    background: #e2e8f0;
+}
+
+
+/* ================================
+   RESULT
+================================ */
+
+.result-container {
+    margin-bottom: 28px;
+}
+
+.result-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+
+    border-left: 6px solid #6366f1;
+
+    box-shadow:
+        0 12px 35px rgba(15,23,42,0.08);
+}
+
+.result-card h2 {
+    margin-bottom: 15px;
+}
+
+.result-high {
+    border-left-color: #ef4444;
+}
+
+.result-medium {
+    border-left-color: #f59e0b;
+}
+
+.result-low {
+    border-left-color: #22c55e;
+}
+
+
+/* ================================
+   FEATURES
+================================ */
+
+.feature-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.feature-card {
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8faff
+        );
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    transition: 0.25s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(15,23,42,0.10);
+}
+
+.feature-icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    color: #312e81;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #6b7280;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    background: #111827;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 30px;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+footer span {
+    color: #c4b5fd;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+
+    .type-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 50px 15px 70px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    .type-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .clear-btn {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}

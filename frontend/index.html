@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Fact Shield AI
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="hero">
+
+        <div class="brand">
+
+            <div class="shield">
+                🛡️
+            </div>
+
+            <h1>
+                FACT SHIELD <span>AI</span>
+            </h1>
+
+        </div>
+
+
+        <p class="subtitle">
+            AI-Powered Information & Internship Offer Verification
+        </p>
+
+
+        <h2>
+            Think. Verify. Stay Safe.
+        </h2>
+
+
+        <p class="hero-description">
+
+            Analyze news, messages, internship offers,
+            documents, images and URLs with AI-assisted
+            verification.
+
+        </p>
+
+    </header>
+
+
+    <!-- =========================================
+         ANALYSIS TYPE
+    ========================================== -->
+
+    <main class="container">
+
+        <section class="card">
+
+            <h2>
+                What do you want to analyze?
+            </h2>
+
+
+            <div class="type-grid">
+
+                <button
+                    class="type-btn active"
+                    onclick="selectType('news', this)"
+                >
+
+                    <span class="icon">
+                        📰
+                    </span>
+
+                    <strong>
+                        News / Claim
+                    </strong>
+
+                    <small>
+                        Verify information
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="type-btn"
+                    onclick="selectType('internship', this)"
+                >
+
+                    <span class="icon">
+                        💼
+                    </span>
+
+                    <strong>
+                        Internship Offer
+                    </strong>
+
+                    <small>
+                        Check suspicious offers
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="type-btn"
+                    onclick="selectType('email', this)"
+                >
+
+                    <span class="icon">
+                        📧
+                    </span>
+
+                    <strong>
+                        Email / Message
+                    </strong>
+
+                    <small>
+                        Analyze messages
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="type-btn"
+                    onclick="selectType('pdf', this)"
+                >
+
+                    <span class="icon">
+                        📄
+                    </span>
+
+                    <strong>
+                        PDF / Document
+                    </strong>
+
+                    <small>
+                        Analyze documents
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="type-btn"
+                    onclick="selectType('image', this)"
+                >
+
+                    <span class="icon">
+                        📷
+                    </span>
+
+                    <strong>
+                        Image
+                    </strong>
+
+                    <small>
+                        Read & analyze image
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="type-btn"
+                    onclick="selectType('url', this)"
+                >
+
+                    <span class="icon">
+                        🔗
+                    </span>
+
+                    <strong>
+                        Website / URL
+                    </strong>
+
+                    <small>
+                        Check website
+                    </small>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             INPUT
+        ====================================== -->
+
+        <section class="card input-card">
+
+            <h2>
+                Enter the information
+            </h2>
+
+
+            <textarea
+                id="textInput"
+                placeholder="Paste the news, claim or information you want to analyze..."
+            ></textarea>
+
+
+            <div class="upload-area">
+
+                <label
+                    for="fileInput"
+                    class="upload-btn"
+                >
+
+                    📁 Upload File
+
+                </label>
+
+
+                <input
+                    type="file"
+                    id="fileInput"
+                    accept=".pdf,.txt,.jpg,.jpeg,.png"
+                    onchange="handleFileSelect(event)"
+                >
+
+
+                <div
+                    id="fileName"
+                    class="file-name"
+                ></div>
+
+
+                <p>
+                    PDF, TXT, JPG or PNG
+                </p>
+
+            </div>
+
+
+            <!-- Loading -->
+
+            <div
+                id="loading"
+                class="loading"
+            >
+
+                <div class="spinner"></div>
+
+                <p>
+                    Analyzing information...
+                </p>
+
+            </div>
+
+
+            <!-- Analyze -->
+
+            <button
+                class="analyze-btn"
+                onclick="analyzeContent()"
+            >
+
+                🔍 Analyze Now
+
+            </button>
+
+
+            <!-- Clear -->
+
+            <button
+                class="clear-btn"
+                onclick="clearInput()"
+            >
+
+                Clear
+
+            </button>
+
+        </section>
+
+
+        <!-- =====================================
+             RESULT
+        ====================================== -->
+
+        <section
+            id="result"
+            class="result-container"
+        ></section>
+
+
+        <!-- =====================================
+             WHY FACT SHIELD AI
+        ====================================== -->
+
+        <section class="card">
+
+            <h2>
+                Why FACT SHIELD AI?
+            </h2>
+
+
+            <div class="feature-grid">
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🧠
+                    </div>
+
+                    <h3>
+                        AI Analysis
+                    </h3>
+
+                    <p>
+                        Analyze information using
+                        AI-assisted techniques.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        💼
+                    </div>
+
+                    <h3>
+                        Internship Safety
+                    </h3>
+
+                    <p>
+                        Detect potential warning signs
+                        in internship offers.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🔎
+                    </div>
+
+                    <h3>
+                        Evidence
+                    </h3>
+
+                    <p>
+                        Present supporting information
+                        and sources.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        📊
+                    </div>
+
+                    <h3>
+                        Risk Indicators
+                    </h3>
+
+                    <p>
+                        Understand the warning
+                        indicators found.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        🛡️ FACT SHIELD AI © 2026
+
+        <br>
+
+        <span>
+            Think • Verify • Stay Safe
+        </span>
+
+    </footer>
+
+
+    <script
+        src="/static/script.js"
+    ></script>
+
+</body>
+
+</html>
